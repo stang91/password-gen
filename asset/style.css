@@ -45,3 +45,7 @@ div{
 button{
     width: 5rem;
 }
+button:hover{
+    background-color: #66FF66;
+    color:black;
+}

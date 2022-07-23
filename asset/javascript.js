@@ -11,10 +11,6 @@ function randomCharGen(array){
 var lengthP=parseInt(prompt("Enter the length of password:",""));
 if(!lengthP||lengthP<8||lengthP>128){
     var lengthP=parseInt(prompt("Password length must be 8-128 characters.  Please input an new length:",""));
-    var lower=confirm("Would you like to use lowercase alphabets in your password?");
-    var upper=confirm("Would you like to use uppercase alphabets in your password?");
-    var symbolP=confirm("Would you like to use symbols in your password?");
-    var numberP=confirm("Would you like to use numbers in your password?");
 } 
  if (lengthP>=8&&lengthP<=128) {
     var lower=confirm("Would you like to use lowercase alphabets in your password?");
@@ -29,6 +25,7 @@ if(!lengthP||lengthP<8||lengthP>128){
     var symbolP=confirm("Would you like to use symbols in your password?");
     var numberP=confirm("Would you like to use numbers in your password?");
 }
+
 password=[];
 while (password.length<lengthP){
     if(lower&&password.length<lengthP){
