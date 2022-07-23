@@ -1,4 +1,47 @@
+*{
+    background-color: black;
+    color:#66FF66;
+    border-color: #66FF66;
+    font-family: monospace, serif, times;
+    margin:.5rem;
+    padding:.5rem;
+}
+
 header{
     display: flex;
     justify-content: center;
+    border-bottom: solid 3px;
+    padding:0;
+    margin: 0 0 5rem 0;
+}
+body,html{
+    margin:0;
+    padding: 0;
+}
+fieldset{
+    display:flex;
+    justify-content: center;
+    margin:auto;
+    width:20rem;
+    height: 15rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+textarea{
+    align-self: center;
+    height: 4rem;
+    width: 10rem;
+}
+div{
+    display:flex;
+    flex-direction:row ;
+    justify-content: space-around;
+}
+button{
+    width: 5rem;
 }
