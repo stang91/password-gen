@@ -8,43 +8,53 @@ function randomCharGen(array){
     var randomChar=array[randomIndex];
     return randomChar;
 };
-var lengthP=parseInt(prompt("Enter the length of password:",""));
-if(!lengthP||lengthP<8||lengthP>128){
-    var lengthP=parseInt(prompt("Password length must be 8-128 characters.  Please input an new length:",""));
-} 
- if (lengthP>=8&&lengthP<=128) {
-    var lower=confirm("Would you like to use lowercase alphabets in your password?");
-    var upper=confirm("Would you like to use uppercase alphabets in your password?");
-    var symbolP=confirm("Would you like to use symbols in your password?");
-    var numberP=confirm("Would you like to use numbers in your password?");
-}
- if(!lower&&!upper&&!symbolP&&!numberP){
-    alert("You must confirm at least one of the options");
-    var lower=confirm("Would you like to use lowercase alphabets in your password?");
-    var upper=confirm("Would you like to use uppercase alphabets in your password?");
-    var symbolP=confirm("Would you like to use symbols in your password?");
-    var numberP=confirm("Would you like to use numbers in your password?");
-}
 
-password=[];
-while (password.length<lengthP){
-    if(lower&&password.length<lengthP){
-        var randomLowCas=randomCharGen(alpha);
-        password.push(randomLowCas);
+document.querySelector("#generate").addEventListener("click",function (){
+    var lengthP=parseInt(prompt("Enter the length of password:",""));
+    if(!lengthP||lengthP<8||lengthP>128){
+        var lengthP=parseInt(prompt("Password length must be 8-128 characters.  Please input an new length:",""));
+    } 
+     if (lengthP>=8&&lengthP<=128) {
+        var lower=confirm("Would you like to use lowercase alphabets in your password?");
+        var upper=confirm("Would you like to use uppercase alphabets in your password?");
+        var symbolP=confirm("Would you like to use symbols in your password?");
+        var numberP=confirm("Would you like to use numbers in your password?");
     }
-    if(upper&&password.length<lengthP){
-        var randomUpCas=randomCharGen(alphaCap);
-        password.push(randomUpCas);
+     if(!lower&&!upper&&!symbolP&&!numberP){
+        alert("You must confirm at least one of the options");
+        var lower=confirm("Would you like to use lowercase alphabets in your password?");
+        var upper=confirm("Would you like to use uppercase alphabets in your password?");
+        var symbolP=confirm("Would you like to use symbols in your password?");
+        var numberP=confirm("Would you like to use numbers in your password?");
     }
-    if(symbolP&&password.length<lengthP){
-        var randomSym=randomCharGen(symbol);
-        password.push(randomSym);
+
+    password=[];
+    while (password.length<lengthP){
+        if(lower&&password.length<lengthP){
+            var randomLowCas=randomCharGen(alpha);
+            password.push(randomLowCas);
+        }
+        if(upper&&password.length<lengthP){
+            var randomUpCas=randomCharGen(alphaCap);
+            password.push(randomUpCas);
+        }
+        if(symbolP&&password.length<lengthP){
+            var randomSym=randomCharGen(symbol);
+            password.push(randomSym);
+        }
+        if(numberP&&password.length<lengthP){
+            var randomNumb=randomCharGen(number);
+            password.push(randomNumb);
+        }
     }
-    if(numberP&&password.length<lengthP){
-        var randomNumb=randomCharGen(number);
-        password.push(randomNumb);
-    }
-}
-var pw= password.join("");
-console.log(pw);
-document.querySelector("#pwgen").value=pw;
+    var pw= password.join("");
+    console.log(pw);
+    document.querySelector("#pwgen").value=pw;
+});
+
+
+document.querySelector("#copy").addEventListener("click",function(event){
+    event.preventDefault();
+    document.querySelector("#pwgen").select();
+    document.execCommand('copy');
+});
