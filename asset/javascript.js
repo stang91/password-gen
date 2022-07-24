@@ -3,32 +3,34 @@ var alpha="abcdefghijklmnopqrstuvwxyz".split("");
 var alphaCap=alpha.join("").toUpperCase().split("");
 var number="1234567890".split("");
 
+//random generator function
 function randomCharGen(array){
     var randomIndex=Math.floor(Math.random()*array.length);
     var randomChar=array[randomIndex];
     return randomChar;
 };
-
+// prompting password generator clicking event
 document.querySelector("#generate").addEventListener("click",function (generateEvent){
     generateEvent.preventDefault();
+    //prompt logic 
     var lengthP=parseInt(prompt("Enter the length of password:",""));
     if(!lengthP||lengthP<8||lengthP>128){
         var lengthP=parseInt(prompt("Password length must be 8-128 characters.  Please input an new length:",""));
     } 
-     if (lengthP>=8&&lengthP<=128) {
+    if (lengthP>=8&&lengthP<=128) {
         var lower=confirm("Would you like to use lowercase alphabets in your password?");
         var upper=confirm("Would you like to use uppercase alphabets in your password?");
         var symbolP=confirm("Would you like to use symbols in your password?");
         var numberP=confirm("Would you like to use numbers in your password?");
     }
-     if(!lower&&!upper&&!symbolP&&!numberP){
+    if(!lower&&!upper&&!symbolP&&!numberP){
         alert("You must confirm at least one of the options");
         var lower=confirm("Would you like to use lowercase alphabets in your password?");
         var upper=confirm("Would you like to use uppercase alphabets in your password?");
         var symbolP=confirm("Would you like to use symbols in your password?");
         var numberP=confirm("Would you like to use numbers in your password?");
     }
-
+    //password generator with logic prompt and randoom variable agreement
     password=[];
     while (password.length<lengthP){
         if(lower&&password.length<lengthP){
@@ -48,12 +50,13 @@ document.querySelector("#generate").addEventListener("click",function (generateE
             password.push(randomNumb);
         }
     }
+    // password gnerated and combining into a string and placing into pwgen element
     var pw= password.join("");
     console.log(pw);
     document.querySelector("#pwgen").value=pw;
 });
 
-//copy 
+//select and copy button click event 
 document.querySelector("#copy").addEventListener("click",function(event){
     event.preventDefault();
     document.querySelector("#pwgen").select();
