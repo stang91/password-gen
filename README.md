@@ -11,7 +11,7 @@ I need to stop my drooling face from ruining my laptop.  So I need
 to devise a plan to through these faces from ciruclating into my 
 meme gods friends' hands.
 
-Therefore, if I evr want a piece of mind and don't want my stupid 
+Therefore, if I ever want a piece of mind and don't want my stupid 
 face to cirulate around them, I must create this password generate.
 
 So with the advent of this divine password generator that 
