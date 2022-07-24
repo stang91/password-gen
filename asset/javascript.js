@@ -9,7 +9,8 @@ function randomCharGen(array){
     return randomChar;
 };
 
-document.querySelector("#generate").addEventListener("click",function (){
+document.querySelector("#generate").addEventListener("click",function (generateEvent){
+    generateEvent.preventDefault();
     var lengthP=parseInt(prompt("Enter the length of password:",""));
     if(!lengthP||lengthP<8||lengthP>128){
         var lengthP=parseInt(prompt("Password length must be 8-128 characters.  Please input an new length:",""));
@@ -52,7 +53,7 @@ document.querySelector("#generate").addEventListener("click",function (){
     document.querySelector("#pwgen").value=pw;
 });
 
-
+//copy 
 document.querySelector("#copy").addEventListener("click",function(event){
     event.preventDefault();
     document.querySelector("#pwgen").select();
